@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C.S.C SARL — Génie Civil & Architecture | Kinshasa</title>
+    <meta name="description"
+        content="Congo Secours Construction SARL — Génie civil, architecture et ingénierie de haute précision à Kinshasa depuis 2013.">
+    <style>
+        /* ===== RESET ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            color: #1a1a1a;
+            background: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        :root {
+            --navy: #071b2e;
+            --navy-dark: #061421;
+            --navy-light: #18384f;
+            --gold: #d8b857;
+            --gold-light: #e5c762;
+            --gold-dark: #b69331;
+            --gold-deep: #8d7025;
+            --cream: #f5f3ed;
+            --slate: #64748b;
+            --slate-light: #94a3b8;
+            --white: #ffffff;
+        }
+
+        /* ===== LAYOUT HELPERS ===== */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .container-lg {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        @media (max-width: 1024px) {
+            .container-lg {
+                padding: 0 20px;
+            }
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 16px;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gold-dark);
+        }
+
+        .section-heading {
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: var(--navy);
+        }
+
+        @media (min-width: 640px) {
+            .section-heading {
+                font-size: 40px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .section-heading {
+                font-size: 48px;
+            }
+        }
+
+        .section-copy {
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--slate);
+        }
+
+        @media (min-width: 640px) {
+            .section-copy {
+                font-size: 18px;
+            }
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(7, 27, 46, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            color: #fff;
+        }
+
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        @media (min-width: 1024px) {
+            .header-inner {
+                padding: 0 32px;
+            }
+        }
+
+        .logo-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-align: left;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .logo-imgs {
+            display: flex;
+            gap: 4px;
+        }
+
+        .logo-imgs img {
+            height: 44px;
+            width: 44px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .logo-text strong {
+            display: block;
+            font-size: 18px;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-text span {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            color: var(--gold);
+        }
+
+        .nav-desktop {
+            display: none;
+            align-items: center;
+            gap: 28px;
+        }
+
+        @media (min-width: 1024px) {
+            .nav-desktop {
+                display: flex;
+            }
+        }
+
+        .nav-desktop button.nav-link {
+            font-size: 14px;
+            font-weight: 600;
+            color: #cbd5e1;
+            transition: color 0.2s;
+        }
+
+        .nav-desktop button.nav-link:hover {
+            color: var(--gold-light);
+        }
+
+        .nav-cta {
+            border-radius: 9999px;
+            background: var(--gold);
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .menu-toggle {
+            display: block;
+            padding: 8px;
+            border-radius: 8px;
+            color: #fff;
+        }
+
+        @media (min-width: 1024px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        .nav-mobile {
+            display: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--navy);
+            padding: 0 20px;
+        }
+
+        .nav-mobile.open {
+            display: block;
+        }
+
+        .nav-mobile button {
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 14px 0;
+            text-align: left;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            background: var(--navy);
+            padding-top: 80px;
+            color: #fff;
+        }
+
+        .hero-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 85% 20%, rgba(216, 184, 87, 0.2), transparent 35%);
+        }
+
+        .hero-inner {
+            position: relative;
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            gap: 56px;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+            padding: 64px 20px;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-inner {
+                grid-template-columns: 1.08fr 0.92fr;
+                padding: 64px 32px;
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(216, 184, 87, 0.3);
+            background: rgba(216, 184, 87, 0.1);
+            border-radius: 9999px;
+            padding: 8px 16px;
+            margin-bottom: 28px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold-light);
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+        }
+
+        @media (min-width: 640px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 72px;
+            }
+        }
+
+        .hero h1 .gold {
+            color: var(--gold);
+        }
+
+        .hero p {
+            margin-top: 28px;
+            max-width: 640px;
+            font-size: 18px;
+            line-height: 2;
+            color: #cbd5e1;
+        }
+
+        .hero-actions {
+            margin-top: 36px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .btn-gold {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 9999px;
+            background: var(--gold);
+            padding: 16px 28px;
+            font-weight: 700;
+            color: var(--navy);
+            transition: transform 0.2s;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-4px);
+        }
+
+        .btn-outline {
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 16px 28px;
+            font-weight: 700;
+            color: #fff;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold-light);
+        }
+
+        .hero-visual {
+            position: relative;
+            border-radius: 26px;
+            background: linear-gradient(135deg, var(--navy-light), #0b263b);
+        }
+
+        .hero-visual::before {
+            content: "";
+            position: absolute;
+            inset: -16px;
+            border-radius: 32px;
+            border: 1px solid rgba(216, 184, 87, 0.2);
+        }
+
+        .hero-visual img {
+            position: relative;
+            height: 420px;
+            width: 100%;
+            border-radius: 26px;
+            object-fit: cover;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (min-width: 1024px) {
+            .hero-visual img {
+                height: 580px;
+            }
+        }
+
+        .hero-badge-bottom {
+            position: absolute;
+            bottom: -20px;
+            left: -12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-radius: 16px;
+            background: #fff;
+            padding: 16px;
+            color: var(--navy);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-badge-bottom svg {
+            color: var(--gold-dark);
+        }
+
+        .hero-badge-bottom b {
+            display: block;
+            font-size: 20px;
+        }
+
+        .hero-badge-bottom span {
+            font-size: 12px;
+            color: var(--slate);
+        }
+
+        /* ===== STATS ===== */
+        .stats {
+            border-bottom: 1px solid #e2e8f0;
+            background: #fff;
+        }
+
+        .stats-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            padding: 0 20px;
+        }
+
+        @media (min-width: 1024px) {
+            .stats-inner {
+                grid-template-columns: repeat(4, 1fr);
+                padding: 0 32px;
+            }
+        }
+
+        .stat {
+            padding: 36px 16px;
+            text-align: center;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        @media (max-width: 1023px) {
+            .stat:nth-child(2) {
+                border-right: none;
+            }
+
+            .stat {
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            .stat:nth-last-child(-n+2) {
+                border-bottom: none;
+            }
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--gold-dark);
+        }
+
+        @media (min-width: 640px) {
+            .stat strong {
+                font-size: 36px;
+            }
+        }
+
+        .stat span {
+            display: block;
+            margin-top: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--slate);
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            background: var(--cream);
+            padding: 96px 0;
+        }
+
+        .services-grid {
+            margin-top: 48px;
+            display: grid;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .service-card {
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            background: #fff;
+            padding: 28px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            margin-bottom: 24px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: var(--navy);
+            color: var(--gold-light);
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .service-card p {
+            margin-top: 12px;
+            line-height: 1.75;
+            color: #475569;
+        }
+
+        /* ===== GALLERY ===== */
+        .gallery {
+            background: #fff;
+            padding: 96px 0;
+        }
+
+        .gallery-header {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-end;
+            }
+        }
+
+        .gallery-count {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--gold-dark);
+        }
+
+        .gallery-grid {
+            margin-top: 48px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            background: #f1f5f9;
+        }
+
+        .gallery-item.big {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        @media (max-width: 767px) {
+            .gallery-item.big {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            min-height: 176px;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            transition: transform 0.7s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item figcaption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, var(--navy), transparent);
+            padding: 20px;
+            padding-top: 56px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .gallery-more {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .btn-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--navy);
+            border-radius: 9999px;
+            padding: 12px 24px;
+            font-weight: 700;
+            color: var(--navy);
+            transition: all 0.2s;
+        }
+
+        .btn-more:hover {
+            background: var(--navy);
+            color: #fff;
+        }
+
+        .gallery-video {
+            margin-top: 64px;
+            overflow: hidden;
+            border-radius: 24px;
+            background: var(--navy);
+            padding: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-video-label {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .gallery-video-label svg {
+            color: var(--gold-light);
+        }
+
+        .gallery-video video {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 16px;
+            background: #000;
+            object-fit: cover;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            background: var(--navy);
+            padding: 96px 0;
+            color: #fff;
+        }
+
+        .about-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            gap: 56px;
+            padding: 0 20px;
+        }
+
+        @media (min-width: 1024px) {
+            .about-inner {
+                grid-template-columns: 1.1fr 0.9fr;
+                padding: 0 32px;
+            }
+        }
+
+        .about .section-heading {
+            color: #fff;
+        }
+
+        .about p.lead {
+            margin-top: 24px;
+            max-width: 640px;
+            font-size: 18px;
+            line-height: 2;
+            color: #cbd5e1;
+        }
+
+        .values {
+            margin-top: 32px;
+            display: grid;
+            gap: 12px;
+        }
+
+        @media (min-width: 640px) {
+            .values {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .value-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px;
+            font-weight: 600;
+        }
+
+        .value-item svg {
+            color: var(--gold-light);
+            flex-shrink: 0;
+        }
+
+        .team {
+            display: grid;
+            gap: 20px;
+        }
+
+        @media (min-width: 640px) {
+            .team {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .team-card {
+            overflow: hidden;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #fff, #e2e8f0);
+            color: var(--navy);
+        }
+
+        .team-card img {
+            aspect-ratio: 4/5;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .team-card-body {
+            padding: 20px;
+        }
+
+        .team-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .team-card p {
+            margin-top: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #a9872d;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            background: var(--cream);
+            padding: 96px 0;
+        }
+
+        .contact-card {
+            max-width: 1280px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 32px;
+            background: #fff;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-grid {
+            display: grid;
+        }
+
+        @media (min-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-info {
+            padding: 32px;
+        }
+
+        @media (min-width: 640px) {
+            .contact-info {
+                padding: 48px;
+            }
+        }
+
+        .contact-items {
+            margin-top: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .contact-item-icon {
+            border-radius: 8px;
+            background: rgba(216, 184, 87, 0.2);
+            padding: 10px;
+            color: var(--gold-deep);
+            flex-shrink: 0;
+        }
+
+        .contact-item span {
+            padding-top: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #334155;
+            word-break: break-word;
+        }
+
+        .contact-actions {
+            margin-top: 36px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn-navy {
+            border-radius: 9999px;
+            background: var(--navy);
+            padding: 12px 20px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 9999px;
+            background: var(--gold);
+            padding: 12px 20px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .contact-visual {
+            position: relative;
+            min-height: 420px;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px;
+        }
+
+        .contact-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .contact-visual-wrapper {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .contact-visual-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 32px;
+            background: linear-gradient(to top, rgba(7, 27, 46, 0.9), transparent);
+            color: #fff;
+        }
+
+        .contact-visual-text strong {
+            font-size: 24px;
+            display: block;
+        }
+
+        .contact-visual-text p {
+            margin-top: 8px;
+            color: #cbd5e1;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--navy-dark);
+            padding: 40px 0;
+            color: var(--slate-light);
+        }
+
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        @media (min-width: 640px) {
+            .footer-inner {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .footer-inner {
+                padding: 0 32px;
+            }
+        }
+
+        .footer-brand strong {
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .footer-brand p {
+            margin-top: 4px;
+            font-size: 12px;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-copy {
+            font-size: 14px;
+        }
+
+        .footer-link {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        /* ===== UTILITIES ===== */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="header-inner">
+            <button class="logo-btn" onclick="scrollToId('accueil')">
+                <div class="logo-imgs">
+                    <img src="bleu.jpg" alt="Logo C.S.C bleu" onerror="this.style.display='none'">
+                    <img src="rouge.jpg" alt="Logo C.S.C rouge" onerror="this.style.display='none'">
+                </div>
+                <div class="logo-text">
+                    <strong>C.S.C SARL</strong>
+                    <span>GÉNIE CIVIL & ARCHITECTURE</span>
+                </div>
+            </button>
+            <nav class="nav-desktop">
+                <button class="nav-link" onclick="scrollToId('accueil')">Accueil</button>
+                <button class="nav-link" onclick="scrollToId('services')">Expertises</button>
+                <button class="nav-link" onclick="scrollToId('realisations')">Réalisations</button>
+                <button class="nav-link" onclick="scrollToId('apropos')">À propos</button>
+                <button class="nav-link" onclick="scrollToId('contact')">Contact</button>
+                <button class="nav-cta" onclick="scrollToId('contact')">Parler de votre projet</button>
+            </nav>
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" id="menu-icon">
+                    <line x1="4" y1="6" x2="20" y2="6" />
+                    <line x1="4" y1="12" x2="20" y2="12" />
+                    <line x1="4" y1="18" x2="20" y2="18" />
+                </svg>
+            </button>
+        </div>
+        <nav class="nav-mobile" id="mobile-nav">
+            <button onclick="scrollToId('accueil')">Accueil</button>
+            <button onclick="scrollToId('services')">Expertises</button>
+            <button onclick="scrollToId('realisations')">Réalisations</button>
+            <button onclick="scrollToId('apropos')">À propos</button>
+            <button onclick="scrollToId('contact')">Contact</button>
+        </nav>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="accueil">
+        <div class="hero-glow"></div>
+        <div class="hero-inner">
+            <div>
+                <div class="hero-badge">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                    </svg>
+                    Excellence
+                </div>
+                <h1>Nous bâtissons la <span class="gold">RDC de demain.</span></h1>
+                <p>Génie civil, architecture et ingénierie de haute précision à Kinshasa. De l'idée à la livraison, nous
+                    transformons vos ambitions en ouvrages durables.</p>
+                <div class="hero-actions">
+                    <button class="btn-gold" onclick="scrollToId('contact')">
+                        Démarrer un projet
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                    </button>
+                    <button class="btn-outline" onclick="scrollToId('realisations')">Voir nos réalisations</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img src="WhatsApp Image 2025-10-06 à 11.29.43_88965ca3.jpg" alt="Réalisation moderne de C.S.C SARL"
+                    onerror="this.style.display='none'">
+                <div class="hero-badge-bottom">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 21h18" />
+                        <path d="M5 21V7l8-4v18" />
+                        <path d="M19 21V11l-6-4" />
+                    </svg>
+                    <div><b></b><span>projets livrés</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="stats">
+        <div class="stats-inner">
+            <div class="stat"><strong>50+</strong><span>Projets réalisés</span></div>
+            <div class="stat"><strong>5 ans</strong><span>D'expérience</span></div>
+            <div class="stat"><strong>5+</strong><span>Experts certifiés</span></div>
+            <div class="stat"><strong>98%</strong><span>Clients satisfaits</span></div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services" id="services">
+        <div class="container-lg">
+            <div style="max-width:640px">
+                <span class="eyebrow">Nos expertises</span>
+                <h2 class="section-heading">Une maîtrise complète, du concept à la livraison.</h2>
+                <p class="section-copy">Un interlocuteur unique pour piloter chaque étape avec exigence, transparence et
+                    précision.</p>
+            </div>
+            <div class="services-grid">
+                <article class="service-card">
+                    <div class="service-icon"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 3v18" />
+                            <path d="M3 12h18" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg></div>
+                    <h3>Architecture</h3>
+                    <p>Conception contemporaine, plans techniques et modélisation 3D.</p>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 21h18" />
+                            <path d="M5 21V7l8-4v18" />
+                            <path d="M19 21V11l-6-4" />
+                        </svg></div>
+                    <h3>Génie civil</h3>
+                    <p>Ouvrages structuraux, bâtiments, routes et infrastructures durables.</p>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                        </svg></div>
+                    <h3>Électricité</h3>
+                    <p>Installations fiables en haute et basse tension.</p>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 4v16" />
+                            <path d="M2 8h18a2 2 0 0 1 2 2v10" />
+                            <path d="M2 17h20" />
+                            <path d="M6 8v9" />
+                        </svg></div>
+                    <h3>Design intérieur</h3>
+                    <p>Espaces élégants, fonctionnels et pensés dans chaque détail.</p>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 3v18h18" />
+                            <path d="M7 16l4-4 4 4 5-5" />
+                        </svg></div>
+                    <h3>Bureau d'études</h3>
+                    <p>Calculs structurels, BIM et ingénierie de précision.</p>
+                </article>
+                <article class="service-card">
+                    <div class="service-icon"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                        </svg></div>
+                    <h3>Maintenance</h3>
+                    <p>Suivi technique et entretien durable de vos bâtiments.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="gallery" id="realisations">
+        <div class="container-lg">
+            <div class="gallery-header">
+                <div style="max-width:640px">
+                    <span class="eyebrow">Notre portfolio</span>
+                    <h2 class="section-heading">Des réalisations qui parlent pour nous.</h2>
+                    <p class="section-copy">Architecture, construction, design intérieur et ouvrages techniques réalisés
+                        avec la même exigence.</p>
+                </div>
+                <span class="gallery-count" id="gallery-count">47 projets présentés</span>
+            </div>
+            <div class="gallery-grid" id="gallery-grid"></div>
+            <div class="gallery-more" id="gallery-more">
+                <button class="btn-more" onclick="expandGallery()">
+                    Voir toute la galerie
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </button>
+            </div>
+            <div class="gallery-video">
+                <div class="gallery-video-label">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                    Immersion sur nos chantiers
+                </div>
+                <video src="WhatsApp Vidéo 2025-10-06 à 11.29.06_5a873588.mp4" controls muted playsinline></video>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="about" id="apropos">
+        <div class="about-inner">
+            <div>
+                <span class="eyebrow">Qui sommes-nous</span>
+                <h2 class="section-heading">Une entreprise congolaise bâtie sur l'exigence.</h2>
+                <p class="lead">Congo Secours Construction accompagne entreprises, promoteurs et
+                    particuliers à Kinshasa. Notre équipe réunit architecture, ingénierie et exécution pour donner vie à
+                    des ouvrages fiables, élégants et durables.</p>
+                <div class="values">
+                    <div class="value-item"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg> Qualité certifiée</div>
+                    <div class="value-item"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg> Respect des délais</div>
+                    <div class="value-item"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg> Sécurité garantie</div>
+                    <div class="value-item"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg> Accompagnement sur mesure</div>
+                </div>
+            </div>
+            <div class="team">
+                <article class="team-card">
+                    <img src="WhatsApp Image 2025-09-10 à 22.27.34_79af1083.jpg" alt="Déograce Kabongo"
+                        onerror="this.style.display='none'">
+                    <div class="team-card-body">
+                        <h3>Déograce Kabongo</h3>
+                        <p>Fondateur & Directeur général</p>
+                    </div>
+                </article>
+                <article class="team-card">
+                    <img src="WhatsApp Image 2025-09-23 à 09.16.10_47f869a3.jpg" alt="Daniel Tshimanga"
+                        onerror="this.style.display='none'">
+                    <div class="team-card-body">
+                        <h3>Daniel Tshimanga</h3>
+                        <p>Directeur financier</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="contact">
+        <div class="contact-card">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="eyebrow">Parlons de votre projet</span>
+                    <h2 class="section-heading">Construisons quelque chose de remarquable.</h2>
+                    <p class="section-copy">Notre équipe vous répond et étudie votre projet avec attention.</p>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <span class="contact-item-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg></span>
+                            <span>Limete, Fresias N°633, Kinshasa, RDC</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-item-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg></span>
+                            <span>+243 824 650 197</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-item-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                </svg></span>
+                            <span>Congosecoursconstruction@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-item-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg></span>
+                            <span>Lundi — Samedi : 8h00 — 17h00</span>
+                        </div>
+                    </div>
+                    <div class="contact-actions">
+                        <a href="tel:+243824650197" class="btn-navy">Appeler</a>
+                        <a href="https://wa.me/243991989636" target="_blank" rel="noreferrer" class="btn-whatsapp">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                            </svg>
+                            WhatsApp
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="7" y1="17" x2="17" y2="7" />
+                                <polyline points="7 7 17 7 17 17" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-visual">
+                    <div class="contact-visual-wrapper">
+                        <img src="bureau.jpeg" alt="C.S.C SARL - Bureau d'études"
+                            onerror="this.parentElement.style.display='none'">
+                    </div>
+                    <div class="contact-visual-text">
+                        <strong>Notre équipe, votre partenaire.</strong>
+                        <p>15 professionnels mobilisés pour la réussite de vos projets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <strong>C.S.C SARL</strong>
+                <p>GÉNIE CIVIL & ARCHITECTURE</p>
+            </div>
+            <p class="footer-copy">© 2026 Congo Secours Construction SARL. Tous droits réservés.</p>
+            <a href="mailto:Congosecoursconstruction@gmail.com" class="footer-link">Nous écrire</a>
+        </div>
+    </footer>
+
+    <script>
+        // ===== NAVIGATION =====
+        function scrollToId(id) {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('mobile-nav').classList.remove('open');
+        }
+
+        function toggleMenu() {
+            const nav = document.getElementById('mobile-nav');
+            nav.classList.toggle('open');
+        }
+
+        // ===== GALLERY =====
+        const galleryImages = [
+            ["WhatsApp Image 2025-09-29 à 10.54.50_fd0c6ba4.jpg", "Plan construction"],
+            ["WhatsApp Image 2025-09-29 à 10.54.50_1_2_3_4_5_6_7_8_9_10_11_12.jpg", "Design intérieur"],
+            ["WhatsApp Image 2025-10-06 à 11.29.27_40fc2778.jpg", "Design intérieur"],
+            ["WhatsApp Image 2025-10-06 à 11.29.43_88965ca3.jpg", "Salon prestige"],
+            ["Bureau.jpeg", "Construction"],
+            ["WhatsApp Image 2025-09-10 à 16.36.57_3d84a7a2.jpg", "Ingenieur"],
+            ["WhatsApp Image 2025-09-10 à 16.36.56_9c50111e.jpg", "Projet immobilier"],
+            ["WhatsApp Image 2025-09-10 à 16.36.55_1f3d8b6a.jpg", "Design intérieur"],
+            ["WhatsApp Image 2025-09-10 à 16.36.55_1_2_3_4_5_6_7_8_9_10_11_12.jpg", "Architecture contemporaine"],
+            ["WhatsApp Image 2025-09-10 à 16.36.54_d0f0e7c2.jpg", "Villa moderne"],
+            ["WhatsApp Image 2025-09-10 à 16.36.54_1_2_3_4_5_6_7_8_9_10.jpg", "Bâtiment durable"],
+            ["WhatsApp Image 2025-09-10 à 16.36.53_c0d8e7a2.jpg", "Conception 3D"],
+            ["WhatsApp Image 2026-02-20 at 11.10.33.jpeg", "Structure métallique"],
+            ["WhatsApp Image 2026-02-20 at 11.10.30.jpeg", "Maquette 3D"],
+            ["WhatsApp Image 2026-02-20 at 11.10.32 (1).jpeg", "Équipe ingénieurs"],
+            ["WhatsApp Image 2026-02-20 at 11.10.32 (2).jpeg", "Conception 3D"],
+            ["WhatsApp Image 2026-02-20 at 11.10.33 (1).jpeg", "Projet immobilier"],
+            ["WhatsApp Image 2026-02-20 at 11.10.29 (1).jpeg", "Genie civil"],
+            ["WhatsApp Image 2026-02-20 at 11.10.31 (1).jpeg", "Types de béton"],
+            ["WhatsApp Image 2026-02-20 at 11.10.30 (2).jpeg", "Architecture contemporaine"],
+            ["WhatsApp Image 2026-02-20 at 11.10.33 (2).jpeg", "Projet Fondaion"],
+            ["WhatsApp Image 2025-09-29 à 10.54.49_e39c169b.jpg", "Architecture moderne"],
+            ["WhatsApp Image 2025-09-10 à 16.36.56_9c50111e.jpg", "Projet architectural"],
+            ["WhatsApp Image 2025-09-10 à 22.27.32_4d2cf9ac.jpg", "Ingenieur fondateur"],
+            ["IMG-20260706-WA0020.jpg", "Equipes"],
+            ["IMG-20260706-WA0025.jpg", "Fondation routière"],
+            ["IMG-20260706-WA0026.jpg", "Chantier moderne"],
+            ["IMG-20260706-WA0031.jpg", "Design intérieur"],
+            ["IMG-20260707-WA0001.jpg", "Chantier moderne"],
+            ["IMG-20260708-WA0000.jpg", "pierres maconner"],
+            ["IMG-20260708-WA0001.jpg", "travils de construction"],
+            ["IMG-20260729-WA0011.jpg", "Team d'ingénieurs"],
+            ["IMG-20260708-WA0002.jpg", "Fondation de bâtiment"],
+            ["IMG-20260708-WA0014.jpg", "Construction"],
+            ["IMG-20260708-WA0003.jpg", "Bâtiment durable"],
+            ["IMG-20260708-WA0015.jpg", "Design contemporain"],
+            ["IMG-20260708-WA0005.jpg", "Chantier durable"],
+            ["IMG-20260708-WA0004.jpg", "Structure acier"],
+            ["IMG-20260708-WA0008.jpg", "Construction"],
+            ["IMG-20260708-WA0013.jpg", "Bâtiment écologique"],
+            ["IMG-20260708-WA0018.jpg", "Design moderne"],
+            ["IMG-20260708-WA0029.jpg", "Vue urbaine"],
+            ["IMG-20260708-WA0040.jpg", "Genie civil"],
+            ["IMG-20260729-WA0005.jpg", "Chantier"],
+            ["IMG-20260707-WA0003.jpg", "Bâtiment durable"],
+            ["IMG-20260729-WA0054.jpg", "Ingenieur"],
+            ["IMG-20260729-WA0053.jpg", "Architecture durable"],
+            ["IMG-20260729-WA0055.jpg", "Equipes"],
+            ["IMG-20260729-WA0057.jpg", "Vue aérienne"],
+            ["IMG-20260729-WA0059.jpg", "Batiment"],
+
+        ];
+
+        let galleryExpanded = false;
+
+        function renderGallery() {
+            const grid = document.getElementById('gallery-grid');
+            const shown = galleryExpanded ? galleryImages : galleryImages.slice(0, 12);
+            grid.innerHTML = shown.map(([src, title], i) => {
+                const bigClass = (i % 7 === 0) ? ' big' : '';
+                return `<figure class="gallery-item${bigClass}">
+        <img src="${src}" alt="${title}" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <figcaption>${title}</figcaption>
+      </figure>`;
+            }).join('');
+            document.getElementById('gallery-count').textContent = `${galleryImages.length} projets présentés`;
+            document.getElementById('gallery-more').style.display = galleryExpanded ? 'none' : 'block';
+        }
+
+        function expandGallery() {
+            galleryExpanded = true;
+            renderGallery();
+        }
+
+        renderGallery();
+    </script>
+
+</body>
+
+</html>
